@@ -1,55 +1,98 @@
-<div class="container mb-5 mt-5">
-
+<div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1 class="text-center text-sencondary">Atualizar meu usuário</h1>
+      <h1 class="text-center text-secondary">Atualizar usuário</h1>
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center">
+  <div class="row d-flex justify-content-center my-4">
     <div class="col-md-10">
-
-      <div class="form-group">
+      <div class="form-group mb-2">
         <label for="nome">Nome</label>
-        <input [(ngModel)]='user.nome' class="form-control" type="text" name="nome" id="nome" placeholder="Seu nome"  >
+        <input
+          type="text"
+          class="form-control"
+          name="nome"
+          id="nome"
+          placeholder="Seu nome"
+          [(ngModel)]="user.nome"
+        />
       </div>
-
-      <div class="form-group">
+      <div class="form-group mb-2">
         <label for="usuario">Usuário</label>
-        <input [(ngModel)]='user.usuario' class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
+        <input
+          type="text"
+          class="form-control"
+          name="usuario"
+          id="usuario"
+          placeholder="Seu usuário"
+          [(ngModel)]="user.usuario"
+        />
+      </div>
+      <div class="form-group mb-2">
+        <label for="foto">Link da foto</label>
+        <input
+          type="text"
+          class="form-control"
+          name="foto"
+          id="foto"
+          placeholder="Link da sua foto"
+          [(ngModel)]="user.foto"
+        />
       </div>
 
-      <div class="form-group">
-        <label for="foto">Link da Foto</label>
-        <input [(ngModel)]='user.foto' class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
-      </div>
-
-      <div class="form-group">
+      <div class="form-group mb-2">
         <label for="senha">Senha</label>
-        <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Sua senha">
+        <input
+          type="password"
+          class="form-control"
+          name="senha"
+          id="senha"
+          placeholder="Sua senha"
+          (input)="confirmSenha($event)"
+        />
       </div>
-
-      <div class="form-group">
-        <label for="confirmSenha">Confirmar Senha</label>
-        <input [(ngModel)]='user.senha' class="form-control" type="password" name="confirmSenha" id="confirmSenha"
-          placeholder="Confirme sua senha">
+      <div class="form-group mb-2">
+        <label for="confirmSenha">Confirmar senha</label>
+        <input
+          type="password"
+          class="form-control"
+          name="confirmSenha"
+          id="confirmSenha"
+          placeholder="Confirme sua senha"
+          [(ngModel)]="user.senha"
+        />
       </div>
-
-      <div class="form-group">
-        <label for="tipo">Tipo de Usuário</label>
-        <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
+      <div class="form-group mb-2">
+        <label for="tipo">Tipo de usuário</label>
+        <select
+          name="tipo"
+          id="tipo"
+          class="form-control"
+          (change)="tipoUser($event)"
+        >
           <option>Selecione um tipo de usuário:</option>
-          <option value="normal">Normal</option>
+          <option value="normal">Padrão</option>
           <option value="adm">Administrador</option>
         </select>
       </div>
 
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-danger mr-4" routerLink='/inicio'>Cancelar</button>
-        <button type="submit" class="btn btn-success" (click)='atualizar()' >Atualizar</button>
+      <div class="d-flex justify-content-center mt-3">
+        <button
+          class="btn btn-lg btn-outline-danger me-5"
+          type="submit"
+          routerLink="/inicio"
+        >
+          Cancelar
+        </button>
+        <button
+          class="btn btn-lg btn-outline-primary"
+          type="submit"
+          (click)="atualizar()"
+        >
+          Atualizar
+        </button>
       </div>
-
     </div>
   </div>
-
 </div>

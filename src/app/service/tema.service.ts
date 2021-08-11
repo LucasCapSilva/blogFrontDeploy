@@ -5,34 +5,57 @@ import { Injectable } from '@angular/core';
 import { Tema } from '../model/Tema';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TemaService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
+  //colocar o token no header da requisição
   token = {
-    headers: new HttpHeaders().set('Authorization', environment.token)
+    headers: new HttpHeaders().set('Authorization', environment.token),
+  };
+
+  getAllTema(): Observable<Tema[]> {
+    return this.http.get<Tema[]>(
+      'https://backendthiagofaccipieri.herokuapp.com/tema',
+      this.token
+    );
   }
 
-  getAllTema(): Observable<Tema[]>{
-    return this.http.get<Tema[]>('https://bloglucao.herokuapp.com/tema', this.token)
+  getByIdTema(id: number): Observable<Tema> {
+    return this.http.get<Tema>(
+      `https://backendthiagofaccipieri.herokuapp.com/tema/${id}`,
+      this.token
+    );
   }
 
-  getByIdTema(id: number): Observable<Tema>{
-    return this.http.get<Tema>(`https://bloglucao.herokuapp.com/tema/${id}`, this.token)
+  getByNomeTema(nome: string): Observable<Tema[]> {
+    return this.http.get<Tema[]>(
+      `https://backendthiagofaccipieri.herokuapp.com/tema/nome/${nome}`,
+      this.token
+    );
   }
 
-  postTema(tema: Tema): Observable<Tema>{
-    return this.http.post<Tema>('https://bloglucao.herokuapp.com/tema', tema, this.token)
+  postTema(tema: Tema): Observable<Tema> {
+    return this.http.post<Tema>(
+      'https://backendthiagofaccipieri.herokuapp.com/tema',
+      tema,
+      this.token
+    );
   }
 
-  putTema(tema: Tema): Observable<Tema>{
-    return this.http.put<Tema>('https://bloglucao.herokuapp.com/tema', tema, this.token)
+  putTema(tema: Tema): Observable<Tema> {
+    return this.http.put<Tema>(
+      'https://backendthiagofaccipieri.herokuapp.com/tema',
+      tema,
+      this.token
+    );
   }
 
   deleteTema(id: number) {
-    return this.http.delete(`https://bloglucao.herokuapp.com/tema/${id}`, this.token)
+    return this.http.delete(
+      `https://backendthiagofaccipieri.herokuapp.com/tema/${id}`,
+      this.token
+    );
   }
-
 }
