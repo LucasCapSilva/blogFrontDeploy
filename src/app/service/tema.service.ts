@@ -17,7 +17,7 @@ export class TemaService {
 
   getAllTema(): Observable<Tema[]> {
     return this.http.get<Tema[]>(
-      'https://backendthiagofaccipieri.herokuapp.com/tema',
+      'https://bloggeneration29.herokuapp.com/tema',
       this.token
     );
   }
@@ -31,14 +31,14 @@ export class TemaService {
 
   getByNomeTema(nome: string): Observable<Tema[]> {
     return this.http.get<Tema[]>(
-      `https://backendthiagofaccipieri.herokuapp.com/tema/nome/${nome}`,
+      `https://bloggeneration29.herokuapp.com/tema/nome/${nome}`,
       this.token
     );
   }
 
   postTema(tema: Tema): Observable<Tema> {
     return this.http.post<Tema>(
-      'https://backendthiagofaccipieri.herokuapp.com/tema',
+      'https://bloggeneration29.herokuapp.com/tema',
       tema,
       this.token
     );
@@ -46,7 +46,7 @@ export class TemaService {
 
   putTema(tema: Tema): Observable<Tema> {
     return this.http.put<Tema>(
-      'https://backendthiagofaccipieri.herokuapp.com/tema',
+      'https://bloggeneration29.herokuapp.com/tema',
       tema,
       this.token
     );
@@ -54,7 +54,7 @@ export class TemaService {
 
   deleteTema(id: number) {
     return this.http.delete(
-      `https://backendthiagofaccipieri.herokuapp.com/tema/${id}`,
+      `https://bloggeneration29.herokuapp.com/tema/${id}`,
       this.token
     );
   }
