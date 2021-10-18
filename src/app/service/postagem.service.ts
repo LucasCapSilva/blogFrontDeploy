@@ -17,28 +17,28 @@ export class PostagemService {
 
   getAllPostagens(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>(
-      'https://backendthiagofaccipieri.herokuapp.com/postagens',
+      'https://bloggeneration29.herokuapp.com/postagens',
       this.token
     );
   }
 
   getByIdPostagem(id: number): Observable<Postagem> {
     return this.http.get<Postagem>(
-      `https://backendthiagofaccipieri.herokuapp.com/postagens/${id}`,
+      `https://bloggeneration29.herokuapp.com/postagens/${id}`,
       this.token
     );
   }
 
   getByTituloPostagem(titulo: string): Observable<Postagem[]> {
     return this.http.get<Postagem[]>(
-      `https://backendthiagofaccipieri.herokuapp.com/postagens/titulo/${titulo}`,
+      `https://bloggeneration29.herokuapp.com/postagens/titulo/${titulo}`,
       this.token
     );
   }
 
   postPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.post<Postagem>(
-      'https://backendthiagofaccipieri.herokuapp.com/postagens',
+      'https://bloggeneration29.herokuapp.com/postagens',
       postagem,
       this.token
     );
@@ -46,7 +46,7 @@ export class PostagemService {
 
   putPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.put<Postagem>(
-      'https://backendthiagofaccipieri.herokuapp.com/postagens',
+      'https://bloggeneration29.herokuapp.com/postagens',
       postagem,
       this.token
     );
@@ -54,7 +54,7 @@ export class PostagemService {
 
   deletePostagem(id: number) {
     return this.http.delete(
-      `https://backendthiagofaccipieri.herokuapp.com/postagens/${id}`,
+      `https://bloggeneration29.herokuapp.com/postagens/${id}`,
       this.token
     );
   }
